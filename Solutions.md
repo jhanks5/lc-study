@@ -1,4 +1,4 @@
-# 2 Sum: https://leetcode.com/problems/two-sum/
+# 1. 2 Sum: https://leetcode.com/problems/two-sum/
 1. Initial brute force solution, O(n^2):
 ```
 class Solution {
@@ -41,8 +41,8 @@ class Solution {
 //Map<K,V>
 ```
 
-# 2 Sum II:
-1. Hashmap solution, O(n): https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+# 2. 2 Sum II: https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+1. Hashmap solution, O(n):
 ```
 class Solution {
     public int[] twoSum(int[] numbers, int target) {
