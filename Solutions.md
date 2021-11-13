@@ -40,3 +40,28 @@ class Solution {
 //Return pair of values
 //Map<K,V>
 ```
+
+# 2 Sum II:
+1. Hashmap solution, O(n): https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+```
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        int[] res = new int[2];
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < numbers.length; i++){
+            int val = numbers[i];
+            if (map.containsKey(val)) {
+                return new int[]{map.get(val) + 1, i + 1};
+            }
+            else {
+                map.put(target - val, i);
+            }
+        }
+        return null;
+    }
+}
+
+//Create res arr
+//Create hashmap to hold arr key + val for one pass
+//Pass through array, populate hashmap
+```
