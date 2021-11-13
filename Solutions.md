@@ -16,27 +16,27 @@ class Solution {
     }
 }
 ```
-2. Optimizing with hashmap (draft):
+2. Optimizing with hashmap O(n):
 ```
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
         for (int i = 0; i < nums.length; i++){
-            int ans = target - nums[i];
-            if(map.containsKey(ans)) {
-                return new int[]{map.get(ans), i};
+            int ans = target - nums[i]; 
+            if(map.containsKey(ans)) { 
+                return new int[]{map.get(ans), i};   
             }
             else {
-                map.put(nums[i], i);
+                map.put(nums[i], i); //populate hashmap
             }
         }
-        return null; //esc
+        return null;
     }
 }
 
 //Instantiate hashmap
 //Fix point in the array for first number, i
-//Search hashmap to see if it contains a value that is 'target - x'
+//Search hashmap to see if it contains a value that is 'target - nums[i]'
 //Return pair of values
 //Map<K,V>
 ```
