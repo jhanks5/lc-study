@@ -64,4 +64,40 @@ class Solution {
 //Create res arr
 //Create hashmap to hold arr key + val for one pass
 //Pass through array, populate hashmap
+//You can get away with this algo because the array is already sorted
+```
+
+# 3. [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
+1. Brute force, O(n^2), exceeds time limit:
+```
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++){
+                if (nums[i] == nums[j]){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+```
+
+2. HashSet solution, O(n):
+```
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i < nums.length; i++){
+            if (set.contains(nums[i])){
+                return true;
+            }
+            else{
+                set.add(nums[i]);
+            }
+        }
+        return false;
+    }
+}
 ```
