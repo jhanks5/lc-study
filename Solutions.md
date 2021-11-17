@@ -128,7 +128,7 @@ class Solution {
 //Only checks for beginning parentheses so the "pop" takes place on the closing parentheses
 ```
 
-5. [Shuffle the Array](https://leetcode.com/problems/shuffle-the-array/)
+# 5. [Shuffle the Array](https://leetcode.com/problems/shuffle-the-array/)
 ```
 class Solution {
     public int[] shuffle(int[] nums, int n) {
