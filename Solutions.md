@@ -127,3 +127,27 @@ class Solution {
 //return st.isEmpty() should return true for valid strings
 //Only checks for beginning parentheses so the "pop" takes place on the closing parentheses
 ```
+
+5. [Shuffle the Array](https://leetcode.com/problems/shuffle-the-array/)
+```
+class Solution {
+    public int[] shuffle(int[] nums, int n) {
+        int[] result = new int[2*n];
+        
+        int a = 0; //pointer at beginning, start of x
+        int b = n; //pointer at n, start of y
+        
+        for (int i = 0; i < (n*2); i++){
+            if (i%2 == 0){ //i is even
+                result[i] = nums[a];
+                a++;
+            }
+            else{ //i is odd
+                result[i] = nums[b];
+                b++;
+            }
+        }
+        return result;
+    }
+}
+```
