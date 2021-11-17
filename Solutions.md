@@ -103,7 +103,7 @@ class Solution {
 ```
 
 # 4. [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
-1. Stack solution (On):
+1. Stack solution O(n):
 ```
 class Solution {
     public boolean isValid(String s) {
