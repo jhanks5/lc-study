@@ -101,3 +101,29 @@ class Solution {
     }
 }
 ```
+
+# 4. [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+1. Stack solution (O^n):
+```
+class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> st = new Stack<Character>();
+        for (char c : s.toCharArray()){
+            if (c == '(') st.push(')');
+            else if(c == '[') st.push (']');
+            else if(c == '{') st.push ('}');
+            else if (st.isEmpty() || st.pop() != c) 
+                return false;
+            }
+        return st.isEmpty(); //returns boolean
+        }
+    }
+
+//Create stack
+//For each loop, s as charArray
+//If charArray contains hit input, push corresponding parentheses to stack
+//If stack is empty for char, return false.
+//If stack pop doesn't return current char c, return false
+//return st.isEmpty() should return true for valid strings
+//Only checks for beginning parentheses so the "pop" takes place on the closing parentheses
+```
