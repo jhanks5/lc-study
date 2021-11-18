@@ -129,6 +129,7 @@ class Solution {
 ```
 
 # 5. [Shuffle the Array](https://leetcode.com/problems/shuffle-the-array/)
+1. O(n) loop solution:
 ```
 class Solution {
     public int[] shuffle(int[] nums, int n) {
@@ -148,6 +149,27 @@ class Solution {
             }
         }
         return result;
+    }
+}
+```
+
+# 6. [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
+1. O(n) loop solution:
+```
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int max = Integer.MIN_VALUE; //need a way to store the max, start with constant
+        int res = 0;
+        for (int i = 0; i < nums.length; i++){
+            res += nums[i];
+            if (res > max){
+             max = res;
+            }
+            if (res < 0){
+                res = 0;
+            }
+        }
+        return max;
     }
 }
 ```
