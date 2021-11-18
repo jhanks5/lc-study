@@ -15,8 +15,9 @@ Repo to hold LeetCode solutions and track personal progress easier than sifting 
 
 ## Notable topics that need to be covered
 
-- Noted as observed. May not have covered yet or may need more practice
+Noted as observed. May not have covered yet or may need more practice
 
 - Linked Lists
 - HashMap/HashSet
 - Pointers
+- Recursion
