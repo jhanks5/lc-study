@@ -11,11 +11,12 @@ Repo to hold LeetCode solutions and track personal progress easier than sifting 
 - Big O Notation
 - Stacks
 - Strings
+- Recursion
 
 ## Notable topics that need to be covered
 
-- Noted as observed.
+- Noted as observed. May not have covered yet or may need more practice
 
 - Linked Lists
-- HashMap/HashSet practice
+- HashMap/HashSet
 - Pointers
