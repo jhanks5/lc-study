@@ -173,3 +173,21 @@ class Solution {
     }
 }
 ```
+
+# 7. [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)
+1. O(m+n) time, O(1) space: 
+```
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int tail1 = m-1, tail2 = n-1, sumTail = (m+n)-1; //recall nums1.len = m + n
+        while (tail2 >= 0){ //while iterating through second array
+            if (tail1 >= 0 && nums1[tail1] > nums2[tail2]){ //if nums1[m] bigger than nums2[n]
+                nums1[sumTail--] = nums1[tail1--]; //then put nums1 tail in sumTail (m+n len)
+            }
+            else { //if nums1[m] smaller than nums2[n] || if ==, sumtail loc becomes tail2 val
+                nums1[sumTail--] = nums2[tail2--]; //put nums2 tail in sumTail pointer location
+            }
+        }
+    }
+}
+```
