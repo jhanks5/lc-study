@@ -362,3 +362,29 @@ class Solution {
 //Am pleased that I got the required indices correct; middle logic from original solution is a mess though
 //Need more work on logic mid-iteration & syntax for deriving desired values
 ```
+
+# 10. Binary Search
+1. O(log n)
+```
+class Solution {
+    public int search(int[] nums, int target) {
+        int l = 0; 
+        int r = nums.length - 1;
+        
+        while (l <= r){
+            int mid = (l+r)/2; //inside loop to continuously re-define
+            if (nums[mid] == target){
+                return mid;
+            }
+            if (nums[mid] > target){ //target is in left sub-array
+                r = mid - 1;
+            }
+            else{ //target is in right sub-array
+                l = mid + 1;
+            }
+        }
+        
+        return -1;
+    }
+}
+```
