@@ -191,3 +191,43 @@ class Solution {
     }
 }
 ```
+
+8. [Intersection of Two Arrays II]
+1. Sorted solution, O(n)
+```
+class Solution {
+    public int[] intersect(int[] nums1, int[] nums2) {
+        int pointer1 = 0; //nums1 pointer
+        int pointer2 = 0; //nums2 pointer
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        Arrays.sort(nums1); Arrays.sort(nums2);
+        
+        while (true) {
+            if (pointer1 >= nums1.length || pointer2 >= nums2.length){
+                break; //length 0, exit loop
+            }
+            if (nums1[pointer1] == nums2[pointer2]){
+                list.add(nums1[pointer1]);
+                pointer1++;
+                pointer2++;
+            }
+            else if (nums1[pointer1] > nums2[pointer2]){
+                pointer2++;
+            }
+            else if (nums1[pointer1] < nums2[pointer2]){
+                pointer1++;
+            }
+        }
+        
+        int[] res = new int[list.size()];
+        for (int i = 0; i < res.length; i++){
+            res[i] = list.get(i);
+        }
+        
+        return res;
+    }
+}
+
+//Pretty much copied verbatim from top solution, struggled a bit with the logic behind pointers
+//Do understand the logic for this solution though, sorting enables intuitive use of pointers
+```
