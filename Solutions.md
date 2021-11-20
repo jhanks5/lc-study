@@ -192,7 +192,7 @@ class Solution {
 }
 ```
 
-8. [Intersection of Two Arrays II]
+# 8. [Intersection of Two Arrays II]
 1. Sorted solution, O(n)
 ```
 class Solution {
@@ -231,4 +231,38 @@ class Solution {
 
 //Pretty much copied verbatim from top solution, struggled a bit with the logic behind pointers
 //Do understand the logic for this solution though, sorting enables intuitive use of pointers
+```
+
+2. Flawed logic, passes problem test case but fails submission. Similar solution would be O(n^2) anyway.
+```
+class Solution {
+    public int[] intersect(int[] nums1, int[] nums2) {
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        
+        if (nums1.length <= 0 || nums2.length <= 0){
+            return null; //edge case
+        }
+        
+        for (int i = 0; i < nums1.length; i++){
+            for (int j = 0; j < nums2.length; j++){
+                if (nums1[i] == nums2[j]){
+                    list.add(nums1[i]);
+                    i++;
+                }
+            }
+        }
+        
+        int[] res = new int[list.size()];
+        for (int i = 0; i < res.length; i++){
+            res[i] = list.get(i);
+        }
+        
+        return res;
+    }
+}
+
+//Passes test case but fails submission
+//Logic fails on criteria "must appear as many times as it shows in both arrays"
+//Submitting to repo because this experience suggests that it will be useful to remember that sorting before scanning is a viable option
+//Especially when it helps in understanding/utilizing pointer logic for more space efficient solution, rather than nested loop
 ```
