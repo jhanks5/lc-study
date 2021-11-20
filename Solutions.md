@@ -330,3 +330,35 @@ class Solution {
     }
 }
 ```
+
+3. Revised Original Solution
+```
+class Solution {
+    public int maxProfit(int[] prices) {
+        int sell = 0; 
+        int buy = prices[0]; //placeholders
+        
+        if (prices.length == 0) {
+            return 0; //edge case
+        }
+        
+        for (int i = 1; i < prices.length; i++){
+            if (prices[i] > buy){
+                if (sell < (prices[i]-buy)){
+                    sell = prices[i] - buy; //find max profit logic
+                }
+            }
+            else{ //if prices[i] < buy
+                buy = prices[i]; //move up buy index to highest val
+            }
+            
+        }
+        
+        return sell;
+    }
+}
+
+//Refined original code using the solution from discussion
+//Am pleased that I got the required indices correct; middle logic from original solution is a mess though
+//Need more work on logic mid-iteration & syntax for deriving desired values
+```
