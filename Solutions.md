@@ -192,7 +192,7 @@ class Solution {
 }
 ```
 
-# 8. [Intersection of Two Arrays II]
+# 8. [Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii/)
 1. Sorted solution, O(n)
 ```
 class Solution {
