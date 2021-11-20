@@ -363,7 +363,7 @@ class Solution {
 //Need more work on logic mid-iteration & syntax for deriving desired values
 ```
 
-# 10. Binary Search
+# 10. [Binary Search](https://leetcode.com/problems/binary-search/)
 1. O(log n)
 ```
 class Solution {
@@ -385,6 +385,34 @@ class Solution {
         }
         
         return -1;
+    }
+}
+```
+
+# 11. [First Bad Version](https://leetcode.com/problems/first-bad-version/)
+1. O(log n)
+```
+/* The isBadVersion API is defined in the parent class VersionControl.
+      boolean isBadVersion(int version); */
+
+public class Solution extends VersionControl {
+    public int firstBadVersion(int n) {
+        int l = 1;
+	    int r = n;
+
+	    while (l < r) {
+    		int mid = l + (r - l) / 2;
+
+	    	if (isBadVersion(mid)) {
+		    	r = mid;
+		    } else {
+		    	l = mid + 1;
+		    }
+
+	    }
+
+	    return l;
+
     }
 }
 ```
