@@ -266,3 +266,67 @@ class Solution {
 //Submitting to repo because this experience suggests that it will be useful to remember that sorting before scanning is a viable option
 //Especially when it helps in understanding/utilizing pointer logic for more space efficient solution, rather than nested loop
 ```
+
+# 9. [Best Time To Buy And Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+1. Original code, exceeds time limit.
+```
+class Solution {
+    public int maxProfit(int[] prices) {
+        int max = 0; 
+        int min = prices[0]; //placeholder
+        
+        for (int i = 0; i < prices.length; i++){
+            if (prices[i] < min){
+                min = prices[i];
+            }
+            if (max < prices[i]){
+                max = prices[i];
+            }
+        }
+        
+        int i = 0; int maxIndex = 0; int minIndex = 0;
+        while (i < prices.length){ //find index
+            if(prices[i] == max) {
+                maxIndex = i;
+            }
+            else if (prices[i] == min){
+                minIndex = i;
+            }
+        }
+        
+        if (minIndex < maxIndex){ 
+            return max - min;
+        }
+        
+        return 0;
+    }
+}
+```
+
+2. Solution from Discussion
+```
+class Solution {
+    public int maxProfit(int[] prices) {
+        int res = 0;
+        
+        if (prices.length == 0){
+            return res; //edge case
+        }
+        
+        int buy = prices[0]; //set placeholder to iterate through arr
+        
+        for (int i = 1; i < prices.length; i++){
+            if(prices[i] > buy){
+                if (res < (prices[i] - buy)){ //ensure max profit
+                    res = prices[i] - buy; //res is new max profit
+                }
+            }
+            else{ //prices[i] < buy
+                    buy = prices[i];
+                }
+        }
+        
+        return res;
+    }
+}
+```
