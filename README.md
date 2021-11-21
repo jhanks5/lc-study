@@ -13,6 +13,7 @@ Repo to hold LeetCode solutions and track personal progress easier than sifting 
 - Stacks
 - Strings
 - Recursion
+- Binary Search
 
 ## Notable topics that need to be covered
 
@@ -22,3 +23,4 @@ Noted as observed. May not have covered yet or may need more practice
 - HashMap/HashSet
 - Pointers
 - Recursion
+- Multi-dimensional Arrays

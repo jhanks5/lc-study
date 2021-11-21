@@ -416,3 +416,25 @@ public class Solution extends VersionControl {
     }
 }
 ```
+
+# 12. [Reshape the Matrix](https://leetcode.com/problems/reshape-the-matrix/)
+```
+class Solution {
+    public int[][] matrixReshape(int[][] mat, int r, int c) {
+        int n = mat.length;
+        int m = mat[0].length;
+        if (r * c != n * m){
+            return mat; //edge case
+        }
+        
+        int[][] res = new int[r][c];
+        for (int i = 0; i < r*c; i++){ //r*c is res.length for practical purposes
+            res[i/c][i%c] = mat[i/m][i%m];
+        }
+        
+        return res;
+    }
+}
+
+//Revisit, found this hard, copied solution, do more problems with multi-dimensional arrays
+```
