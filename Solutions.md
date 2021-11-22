@@ -467,3 +467,27 @@ class Solution {
     }
 }
 ```
+
+14. [Search Insert Position](https://leetcode.com/problems/search-insert-position/)
+```
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+        
+        while (left <= right){
+            int mid = (left+right)/2;
+            if (nums[mid] == target){
+                return mid; //index
+            }
+            else if (nums[mid] > target){ //target is to the left of mid
+                right = mid - 1;
+            }
+            else { //nums[mid] < target, target is to the right of mid
+                left = mid + 1;
+            }
+        }
+        return left;
+    }   
+}
+```
