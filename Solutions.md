@@ -438,3 +438,32 @@ class Solution {
 
 //Revisit, found this hard, copied solution, do more problems with multi-dimensional arrays
 ```
+
+# 13. [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/)
+```
+class Solution {
+    public List<List<Integer>> generate(int numRows) {
+        
+        List<List<Integer>> result = new ArrayList<>();
+        
+        for (int i = 0; i < numRows; i++){
+            List<Integer> looplist = new ArrayList<>();
+            
+            for (int j = 0; j < i + 1; j++){
+        
+                if(j == 0 || j == i){ //add 1 to list when empty or when index match
+                    looplist.add(1); //end up with [1,1] on second iteration; keeps 1 on outer
+                }
+                else{ //get indices and add
+                    int a = result.get(i-1).get(j-1); //leftmost val, [r][c]
+                    int b = result.get(i-1).get(j); //rightmost val
+                    looplist.add(a+b); //progress triangle
+                }
+            
+            }
+            result.add(looplist); //populate result list
+        }
+        return result;
+    }
+}
+```
