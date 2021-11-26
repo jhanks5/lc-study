@@ -491,3 +491,40 @@ class Solution {
     }   
 }
 ```
+
+15. [First Unique Character In A String](https://leetcode.com/problems/first-unique-character-in-a-string/)
+1. O(n)
+```
+class Solution {
+    public int firstUniqChar(String s) {
+        int freq[] = new int[256];
+        for (int i = 0; i < s.length(); i++){
+            freq[s.charAt(i)]++;
+        }
+        for (int i = 0; i < s.length(); i++){
+            if(freq[s.charAt(i)] == 1){
+                return i; //return index
+            }
+        }
+        return -1;
+    }
+}
+
+//My original brute force solution was going to use two nested for loops
+//With a placeholder var for the index of a character that didn't trigger the == in 2nd loop
+//It would probably work but exceeds the time limit
+//Found the above O(n) solution in discussions
+/*
+int res = 0;
+
+for (int i = 0; i < s.length(); i++){
+    for (int j = 0; j < s.length(); j++){
+        while (s.charAt(i) !== s.charAt(j)){
+            res = i;
+        }
+    }
+    return res;
+}
+return -1;
+*/
+```
