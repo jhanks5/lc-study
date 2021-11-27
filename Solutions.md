@@ -468,7 +468,7 @@ class Solution {
 }
 ```
 
-14. [Search Insert Position](https://leetcode.com/problems/search-insert-position/)
+# 14. [Search Insert Position](https://leetcode.com/problems/search-insert-position/)
 ```
 class Solution {
     public int searchInsert(int[] nums, int target) {
@@ -492,7 +492,7 @@ class Solution {
 }
 ```
 
-15. [First Unique Character In A String](https://leetcode.com/problems/first-unique-character-in-a-string/)
+# 15. [First Unique Character In A String](https://leetcode.com/problems/first-unique-character-in-a-string/)
 1. O(n)
 ```
 class Solution {
@@ -527,4 +527,121 @@ for (int i = 0; i < s.length(); i++){
 }
 return -1;
 */
+```
+
+# 16. [Ransom Note](https://leetcode.com/problems/ransom-note/)
+1. O(n+m) solution pulled from discussion
+```
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        int arr[] = new int[256];
+        for (int i = 0; i < magazine.length(); i++){
+            arr[magazine.charAt(i)]++;
+        }
+        for (int i = 0; i < ransomNote.length(); i++){
+            if (--arr[ransomNote.charAt(i)] < 0){
+                return false;
+            }
+        }
+        
+        return true;
+    }
+}
+```
+
+# 17. [Valid Anagram](https://leetcode.com/problems/valid-anagram/)
+1. O(n)
+```
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        int res[] = new int[256];
+        for (int i = 0; i < s.length(); i++){
+            res[s.charAt(i)]++; //populate arr for each char in i
+        }
+        for (int i = 0; i < t.length(); i++){
+            res[t.charAt(i)]--; //decrement arr for each char in t
+            if (res[t.charAt(i)] < 0){
+                return false;
+            }
+        }
+        for (int i : res){
+            if (i != 0){
+                return false;
+            }
+        }
+        
+        return true;
+    }
+}
+
+//Only one array on the stack at a time
+//Extra conditional for exit, so don't need to use the third loop
+//Third loop is only for cases where s length exceeds t
+```
+
+# 18. [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
+1. O(1) space, O(n) memory
+```
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        if (head == null) return false; //edge case
+        ListNode once = head; //start at beginning
+        ListNode twice = head;
+        
+        //while each pointer has a spot to go to
+        while (twice.next != null && twice.next.next != null){ //one pointer
+            once = once.next; //iterate once
+            twice = twice.next.next; //iterate twice
+             if (twice == once) {
+                    return true; //they will meet in the list if there's a cycle
+                }
+        }
+        
+        return false; //no match
+    }
+    
+//Note twice.next.next!null && twice.next != null returns a runtime error for single item lists
+//Need to scan the single jump first
+}
+```
+
+# 19. [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
+1. Recursive O(n+m) solution
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if (l1 == null) return l2;
+        if (l2 == null) return l1;
+        
+        if (l1.val < l2.val){
+            l1.next = mergeTwoLists(l1.next, l2);
+            return l1;
+        }
+        else{ //l1.val > l2.val
+            l2.next = mergeTwoLists(l1, l2.next);
+            return l2;
+        }
+    }
+}
 ```
