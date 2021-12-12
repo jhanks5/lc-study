@@ -647,6 +647,7 @@ class Solution {
 ```
 
 # 20. [Plus One](https://leetcode.com/problems/plus-one/)
+1. O(n) space & time. Obv faster when no MSB is needed
 ```
 class Solution {
     public int[] plusOne(int[] digits) {
@@ -663,6 +664,31 @@ class Solution {
         int[] newDigits = new int[n + 1];
         newDigits[0] = 1; //new MSB
         return newDigits;
+    }
+}
+```
+
+# 21. [Fizz Buzz]()
+1. O(n) space & time
+```
+class Solution {
+    public List<String> fizzBuzz(int n) {
+        List<String> ans = new ArrayList<String>();
+        for (int i = 1; i <= n; i++){
+            if (i%3 == 0 && i%5 == 0){
+                ans.add("FizzBuzz");
+            }
+            else if (i%3 == 0){
+                ans.add("Fizz");
+            }
+            else if (i%5 == 0){
+                ans.add("Buzz");
+            }
+            else {
+                ans.add(Integer.toString(i));
+            }
+        }
+        return ans;
     }
 }
 ```
