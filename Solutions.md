@@ -645,3 +645,24 @@ class Solution {
     }
 }
 ```
+
+# 20. [Plus One](https://leetcode.com/problems/plus-one/)
+```
+class Solution {
+    public int[] plusOne(int[] digits) {
+        int n = digits.length;
+        for (int i = n-1; i >= 0; i--){ //start at LSB, decrement through arr
+            if (digits[i] < 9){
+                digits[i]++;
+                return digits;
+            }
+            else digits[i] = 0;
+        }
+        
+        //if no return from prev loop
+        int[] newDigits = new int[n + 1];
+        newDigits[0] = 1; //new MSB
+        return newDigits;
+    }
+}
+```
