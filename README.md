@@ -9,18 +9,9 @@ Repo to hold LeetCode solutions and track personal progress easier than sifting 
 
 - Arrays
 - HashMaps
+- HashSets
 - Big O Notation
 - Stacks
 - Strings
 - Recursion
 - Binary Search
-
-## Notable topics that need to be covered
-
-Noted as observed. May not have covered yet or may need more practice
-
-- Linked Lists
-- HashMap/HashSet
-- Pointers
-- Recursion
-- Multi-dimensional Arrays

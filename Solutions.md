@@ -715,3 +715,37 @@ class Solution {
     }
 }
 ```
+
+23. [Unique Email Addresses](https://leetcode.com/problems/unique-email-addresses/)
+1. O(n) time and space
+```
+class Solution {
+    public int numUniqueEmails(String[] emails) {
+        HashSet<String> set = new HashSet<String>(); //hold # of valid emails
+        
+        for (String str : emails) { //sanitize and build local input
+            
+            StringBuilder cleanLocal = new StringBuilder();
+            for (int i = 0; i < str.length(); ++i){
+                char curr = str.charAt(i);
+                
+                if (curr == '+' || curr == '@') break;                
+                if (curr != '.') cleanLocal.append(curr);
+            }
+            
+            StringBuilder cleanDom = new StringBuilder();
+            for (int i = str.length() - 1; i >= 0; --i){
+                char curr = str.charAt(i);
+                cleanDom.append(curr);
+                if (curr == '@') break;
+                }
+            
+            cleanDom = cleanDom.reverse();
+            cleanLocal = cleanLocal.append(cleanDom);
+            set.add(cleanLocal.toString());
+        }
+        
+        return set.size();
+    }
+}
+```
