@@ -749,3 +749,37 @@ class Solution {
     }
 }
 ```
+
+24. [License Key Formatting](https://leetcode.com/problems/license-key-formatting/)
+1. O(n) time and space
+```
+class Solution {
+    public String licenseKeyFormatting(String s, int k) {
+            StringBuilder res = new StringBuilder();
+            s = s.toUpperCase();
+            int count = 0;
+            
+            //read in reverse to allow flexibility on first section
+            for (int i = s.length() - 1; i >= 0; i--){
+                char j = s.charAt(i);
+                
+                if (j != '-'){
+                    if (count == k){
+                        res.append('-');
+                        count = 0;
+                        res.append(j);
+                        count++; //to catch edge cases
+                    }
+                    else{
+                        res.append(j);
+                        count++;
+                    }
+                }
+            }
+            
+            //reverse res (s read into StringBuilder in reverse)
+            //convert StringBuilder to String for output
+            return res.reverse().toString();
+        }
+    }
+```
