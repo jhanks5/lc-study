@@ -784,7 +784,7 @@ class Solution {
     }
 ```
 
-25. [Fruit Into Baskets]
+25. [Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets/)
 1. O(n) time, O(1) space thanks to hashmap
 ```
 class Solution {
