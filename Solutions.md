@@ -783,3 +783,36 @@ class Solution {
         }
     }
 ```
+
+25. [Fruit Into Baskets]
+1. O(n) time, O(1) space thanks to hashmap
+```
+class Solution {
+    public int totalFruit(int[] fruits) {  
+        if (fruits == null || fruits.length == 0){
+            return -1;
+        } //error checking
+        
+        int max = 1;
+        int i = 0; //leftmost
+        int j = 0; //rightmost
+        HashMap<Integer, Integer> map = new HashMap<Integer,Integer>();
+        
+        while (j < fruits.length){
+            if (map.size() <= 2){
+                map.put(fruits[j], j++); //k, v
+            }
+            if (map.size() > 2){
+                int min = fruits.length - 1; //start large
+                for (int val : map.values()){
+                    min = Math.min(min, val); //find actual min
+                }
+                i = min + 1; //move leftmost pointer to the right
+                map.remove(fruits[min]); //rm key
+            }
+            max = Math.max(max, j - i); //compare max to current substr len
+        }
+        return max;       
+    }
+}
+```
