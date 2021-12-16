@@ -874,3 +874,46 @@ class Solution {
     }
 }
 ```
+
+29. [Palindrome Number](https://leetcode.com/problems/palindrome-number/submissions/)
+```
+class Solution {
+    public boolean isPalindrome(int x) {
+        if (x == 0) return true; //0 is a palindrome
+        if (x < 0 || x%10 == 0) return false; //negative or ends with 0, not a palindrome
+        
+        int reversed_x = 0;
+        while (x > reversed_x) {
+            int pop = x%10; //pop the end off x
+            x = x / 10;
+            reversed_x = (reversed_x * 10) + pop;
+        }
+        
+        return (x==reversed_x || x==reversed_x/10);
+    }
+}
+```
+
+30. [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
+```
+class Solution {
+    public boolean isPalindrome(String s) {
+        int i = 0;
+        int j = s.length() - 1;
+        
+        while (i < j){
+            while(i<j && !Character.isLetterOrDigit(s.charAt(i))){
+                i++;
+            }
+            while(i<j && !Character.isLetterOrDigit(s.charAt(j))){
+                j--;
+            }
+            if (i<j && Character.toLowerCase(s.charAt(i++)) != Character.toLowerCase(s.charAt(j--))){
+                return false;
+            }
+        }
+        
+        return true;
+    }
+}
+```
