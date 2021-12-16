@@ -836,3 +836,41 @@ class Solution {
     }
 }
 ```
+
+27. [Same Tree](https://leetcode.com/problems/same-tree/)
+1. Recursive O(n) solution (only takes as long as the smallest tree)
+```
+class Solution {
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if (p == null || q == null) return (p==q);
+        if (p.val == q.val){ //roots would be the same
+            return isSameTree(p.left, q.left) && isSameTree(p.right, q.right); //true, true, returns true
+        }
+        
+        return false;
+    }
+}
+```
+
+28. [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/solution/)
+```
+class Solution {
+    
+    int diameter = 0;
+    public int diameterOfBinaryTree(TreeNode root) {
+        dfs(root);
+        return diameter;
+    }
+    
+    private int dfs(TreeNode root){
+        if (root == null) return 0;
+        
+        int depthLeft = dfs(root.left);
+        int depthRight = dfs(root.right);
+        
+        diameter = Math.max(diameter, depthLeft + depthRight);
+        
+        return Math.max(depthLeft, depthRight) + 1;
+    }
+}
+```
