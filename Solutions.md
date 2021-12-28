@@ -917,3 +917,45 @@ class Solution {
     }
 }
 ```
+
+31. BackSpace Compare
+```
+class Solution {
+    public boolean backspaceCompare(String s, String t) {
+        return buildStr(s).equals(buildStr(t)); //compare two strings with helper function
+    }
+    
+    private String buildStr(String str){
+        StringBuilder sb = new StringBuilder();
+        
+        for (char c : str.toCharArray()){
+            if (c != '#'){ //valid char
+                sb.append(c);
+            }
+            else if (sb.length() != 0){ //backspace
+                sb.deleteCharAt(sb.length() - 1);
+            }
+        }
+        
+        return sb.toString(); //fully built str with no #
+    }
+}
+```
+
+32. [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
+- Was able to brute force a few test cases for this using a splitting algorithm before going with this solution from discussions.
+```
+class Solution {
+    public ListNode middleNode(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        
+        while (fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        
+        return slow;
+    }
+}
+```
