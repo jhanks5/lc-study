@@ -1007,3 +1007,25 @@ class Solution:
                         
         return res
 ```
+
+34. [Two Sum II]()
+- O(n), two pointers
+```
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        l = 0
+        r = len(nums) - 1
+        res = []
+        
+        while l < r:
+            twoSum = nums[r] + nums[l]
+            if twoSum == target:
+                res.extend((l + 1, r + 1))
+                return res
+            elif twoSum > target:
+                r -= 1
+            elif twoSum < target:
+                l += 1
+        
+        return res # for edge cases
+```
