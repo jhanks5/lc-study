@@ -1029,3 +1029,24 @@ class Solution:
         
         return res # for edge cases
 ```
+
+35. [Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
+- O(n)
+```
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        l, r = 0, len(height) - 1
+        res = 0
+        
+        while l < r:
+            minHeight = min(height[l], height[r])  # take min to get largest possible container
+            length = r - l
+            area = length * minHeight
+            res = max(res, area) # find largest possible area
+            if height[l] < height[r]:
+                l += 1
+            else: # height[r] <= height[l] cases
+                r -= 1
+        
+        return res
+```
