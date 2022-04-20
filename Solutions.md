@@ -1079,3 +1079,26 @@ class Solution:
         
         return res
 ```
+
+36. [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)
+
+1. O(n) space, O(n) memory
+```
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+        count = {}
+        l, res, maxFreq = 0, 0, 0
+        
+        for r in range(len(s)):
+            count[s[r]] = 1 + count.get(s[r], 0)
+            maxFreq = max(maxFreq, count[s[r]]) # find longest substring
+            # windowLen = r - l + 1; must be computed in place
+            if r - l + 1 - maxFreq > k: # insufficient replacements available
+                count[s[l]] -= 1
+                l += 1 # slide window
+                
+            res = max(res, r - l + 1)
+            
+        return res
+```
+
