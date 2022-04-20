@@ -6,11 +6,12 @@ Repo to hold LeetCode solutions and track personal progress easier than sifting 
 ## Topics covered so far
 
 - Arrays
-- Hashing
+- Hashing*
 - Two pointers
-- Sliding Window
+- Sliding Window*
+
+* = needs more review
 
 ## Notes
 
 - Switched to Python to focus on algorithm rather than syntax
-- Java needed for interviews at some companies
