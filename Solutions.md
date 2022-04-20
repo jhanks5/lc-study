@@ -357,10 +357,24 @@ class Solution {
         return sell;
     }
 }
+```
 
-//Refined original code using the solution from discussion
-//Am pleased that I got the required indices correct; middle logic from original solution is a mess though
-//Need more work on logic mid-iteration & syntax for deriving desired values
+O(n) time, O(1) memory Python code
+```
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        l, r = 0, 1
+        maxProfit = 0
+        
+        while r < len(prices):
+            currProfit = prices[r] - prices[l]
+            if prices[l] < prices[r]:
+                maxProfit = max (currProfit, maxProfit)
+            else:
+                l = r
+            r += 1
+        
+        return maxProfit
 ```
 
 # 10. [Binary Search](https://leetcode.com/problems/binary-search/)

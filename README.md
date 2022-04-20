@@ -8,6 +8,7 @@ Repo to hold LeetCode solutions and track personal progress easier than sifting 
 - Arrays
 - Hashing
 - Two pointers
+- Sliding Window
 
 ## Notes
 
