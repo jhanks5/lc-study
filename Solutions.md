@@ -1102,3 +1102,40 @@ class Solution:
         return res
 ```
 
+37. [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
+1. O(n) time
+```
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        if t == "": return "" # empty str edgecase
+        
+        tCount, window = {}, {} # initialize hashmaps
+        
+        for c in t: # populate tCount
+            tCount[c] = 1 + tCount.get(c, 0)
+            
+        have, need = 0, len(tCount) # initialize keeper vals for hashmaps
+        res, resLen = [-1, -1], float("infinity") # infinity bc taking min
+        l = 0
+        for r in range(len(s)):
+            c = s[r]
+            window[c] = 1 + window.get(c, 0) # count char in s for window
+            
+            if c in tCount and window[c] == tCount[c]: # check if t contains c (from window)
+                have += 1
+            
+            while have == need: # all chars required are in window
+                if (r - l + 1) < resLen: # minimizing window
+                    res = [l, r]
+                    resLen = (r - l + 1)
+                window[s[l]] -= 1 # remove char from left of window
+                if s[l] in tCount and window[s[l]] < tCount[s[l]]: # no longer have needed char
+                    have -= 1
+                l += 1 # slide window to the right
+                
+        l, r = res # retrieve window size
+        return s[l:r+1] if resLen != float("infinity") else ""
+        # checking that resLen was updated, because answer may not exist
+```
+
+
