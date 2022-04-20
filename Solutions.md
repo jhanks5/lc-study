@@ -128,6 +128,26 @@ class Solution {
 //Only checks for beginning parentheses so the "pop" takes place on the closing parentheses
 ```
 
+2. O(n) Python
+```
+class Solution:
+    def isValid(self, s: str) -> bool:
+        d = {"(":")", "{":"}", "[":"]"}
+        stack = []
+        
+        for c in s:
+            if c in d:
+                stack.append(c)
+            elif len(stack) == 0 or d[stack.pop()] != c:
+                return False
+        
+        return len(stack) == 0
+        
+    # d[key] returns d[val], so in first testcase
+    # d[stack.pop()] translates to ")" returned from dictionary
+    # meaning ) != ) is not true, we exit loop and return bool for len(stack) == 0
+```
+
 # 5. [Shuffle the Array](https://leetcode.com/problems/shuffle-the-array/)
 1. O(n) loop solution:
 ```
