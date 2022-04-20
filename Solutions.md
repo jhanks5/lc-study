@@ -851,6 +851,21 @@ class Solution {
 }
 ```
 
+2. O(n) time, O(n) space Python
+```
+        charSet = set()
+        l, res = 0, 0
+        
+        for r in range(len(s)):
+            while s[r] in charSet: # visited char is in set, update window
+                charSet.remove(s[l])
+                l += 1 # slide window
+            charSet.add(s[r]) # r += 1 on following line also works
+            res = max(res, r - l + 1)
+        
+        return res
+```
+
 27. [Same Tree](https://leetcode.com/problems/same-tree/)
 1. Recursive O(n) solution (only takes as long as the smallest tree)
 ```
