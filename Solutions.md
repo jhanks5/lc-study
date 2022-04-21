@@ -1158,4 +1158,29 @@ class Solution:
         # checking that resLen was updated, because answer may not exist
 ```
 
+38. [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 
+- O(logn) solution
+```
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        l, r = 0, len(nums) - 1
+        
+        while l <= r:
+            mid = (l + r) // 2
+            if nums[mid] == target:
+                return mid
+            
+            if nums[l] <= nums[mid]: # left portion
+                if nums[l] > target or target > nums[mid]: # L is to right of target, OR target is to right of MID
+                    l = mid + 1 # move to right side of sorted array
+                else: # L is to the left of target, OR target is to the LEFT of mid
+                    r = mid - 1 # move to left side of sorted array
+            else: # right portion
+                if nums[r] < target or target < nums[mid]:
+                    r = mid - 1
+                else:
+                    l = mid + 1
+            
+        return -1
+```
