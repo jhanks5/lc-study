@@ -727,7 +727,7 @@ class Solution {
 }
 ```
 
-22. [Majority Element](https://leetcode.com/problems/majority-element/)
+# 22. [Majority Element](https://leetcode.com/problems/majority-element/)
 ```
 class Solution {
     public int majorityElement(int[] nums) {
@@ -750,7 +750,7 @@ class Solution {
 }
 ```
 
-23. [Unique Email Addresses](https://leetcode.com/problems/unique-email-addresses/)
+# 23. [Unique Email Addresses](https://leetcode.com/problems/unique-email-addresses/)
 1. O(n) time and space
 ```
 class Solution {
@@ -784,7 +784,7 @@ class Solution {
 }
 ```
 
-24. [License Key Formatting](https://leetcode.com/problems/license-key-formatting/)
+# 24. [License Key Formatting](https://leetcode.com/problems/license-key-formatting/)
 1. O(n) time and space
 ```
 class Solution {
@@ -818,7 +818,7 @@ class Solution {
     }
 ```
 
-25. [Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets/)
+# 25. [Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets/)
 1. O(n) time, O(1) space thanks to hashmap
 ```
 class Solution {
@@ -851,7 +851,7 @@ class Solution {
 }
 ```
 
-26. [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+# 26. [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 1. O(n)
 ```
 class Solution {
@@ -886,7 +886,7 @@ class Solution {
         return res
 ```
 
-27. [Same Tree](https://leetcode.com/problems/same-tree/)
+# 27. [Same Tree](https://leetcode.com/problems/same-tree/)
 1. Recursive O(n) solution (only takes as long as the smallest tree)
 ```
 class Solution {
@@ -901,7 +901,7 @@ class Solution {
 }
 ```
 
-28. [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/solution/)
+# 28. [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/solution/)
 ```
 class Solution {
     
@@ -924,7 +924,7 @@ class Solution {
 }
 ```
 
-29. [Palindrome Number](https://leetcode.com/problems/palindrome-number/submissions/)
+# 29. [Palindrome Number](https://leetcode.com/problems/palindrome-number/submissions/)
 ```
 class Solution {
     public boolean isPalindrome(int x) {
@@ -943,7 +943,7 @@ class Solution {
 }
 ```
 
-30. [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
+# 30. [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
 ```
 class Solution {
     public boolean isPalindrome(String s) {
@@ -987,7 +987,7 @@ class Solution:
         return True
 ```
 
-31. BackSpace Compare
+# 31. BackSpace Compare
 ```
 class Solution {
     public boolean backspaceCompare(String s, String t) {
@@ -1011,7 +1011,7 @@ class Solution {
 }
 ```
 
-32. [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
+# 32. [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
 - Was able to brute force a few test cases for this using a splitting algorithm before going with this solution from discussions.
 ```
 class Solution {
@@ -1029,7 +1029,7 @@ class Solution {
 }
 ```
 
-33. [3Sum](https://leetcode.com/problems/3sum/)
+# 33. [3Sum](https://leetcode.com/problems/3sum/)
 - O(n^2)
 ```
 class Solution:
@@ -1057,7 +1057,7 @@ class Solution:
         return res
 ```
 
-34. [Two Sum II](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
+# 34. [Two Sum II](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
 - O(n), two pointers
 ```
 class Solution:
@@ -1079,7 +1079,7 @@ class Solution:
         return res # for edge cases
 ```
 
-35. [Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
+# 35. [Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
 - O(n)
 ```
 class Solution:
@@ -1100,7 +1100,7 @@ class Solution:
         return res
 ```
 
-36. [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)
+# 36. [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)
 
 1. O(n) space, O(n) memory
 ```
@@ -1122,7 +1122,7 @@ class Solution:
         return res
 ```
 
-37. [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
+# 37. [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
 1. O(n) time
 ```
 class Solution:
@@ -1158,8 +1158,7 @@ class Solution:
         # checking that resLen was updated, because answer may not exist
 ```
 
-38. [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
-
+# 38. [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 - O(logn) solution
 ```
 class Solution:
@@ -1185,7 +1184,7 @@ class Solution:
         return -1
 ```
 
-39. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
+# 39. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 1. O(n) with explanation
 ```
 # Definition for singly-linked list.
