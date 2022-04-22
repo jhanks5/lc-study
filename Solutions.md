@@ -1184,3 +1184,27 @@ class Solution:
             
         return -1
 ```
+
+39. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
+1. O(n) with explanation
+```
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        prev, curr = None, head # initialize null pointer prior to start of list
+        
+        while curr:
+            temp = curr.next # placeholder for next value in list
+            curr.next = prev # reversal of list pointer
+            prev = curr # shift prev pointer
+            curr = temp # set curr (1 on first pass) to curr.next (2 on first pass)
+            # 2 1 3 4 5 at end of first pass, with 1 as curr and 2 as prev
+            # both pointers are shifting to the right each pass
+            # simply reversing the list pointers (see function of curr.next), NOT exchanging values
+    
+        return prev
+```
