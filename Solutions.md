@@ -987,7 +987,7 @@ class Solution:
         return True
 ```
 
-# 31. BackSpace Compare
+# 31. [BackSpace Compare](https://leetcode.com/problems/backspace-string-compare/)
 ```
 class Solution {
     public boolean backspaceCompare(String s, String t) {
