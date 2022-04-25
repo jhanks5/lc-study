@@ -1231,10 +1231,53 @@ class Solution:
             tail = tail.next # increment
         
         # checking for null list (in case of uneven length)
+        # readability, but can be simplified to tail.next = l1 or l2
         if l1: # l2 is null
             tail.next = l1
         else:
             tail.next = l2
         
         return dummy.next
+```
+
+# 41. [Reorder List](https://leetcode.com/problems/reorder-list/)
+1. O(n) time, O(1) space
+```
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reorderList(self, head: Optional[ListNode]) -> None:
+        """
+        Do not return anything, modify head in-place instead.
+        """
+        slow = head
+        fast = head.next
+        
+        # find middle
+        while fast and fast.next: # until last val in list
+            slow = slow.next # slow pointer ends at middle
+            fast = fast.next.next
+        
+        # reverse second half of list
+        curr = slow.next
+        prev = slow.next = None
+        while curr:
+            temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = temp
+        
+        # merge the two lists, first and second half
+        first, second = head, prev
+        while second:
+            temp = first.next
+            first.next = second
+            first = temp
+            
+            temp = second.next
+            second.next = first
+            second = temp
 ```
