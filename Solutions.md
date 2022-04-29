@@ -1418,7 +1418,7 @@ class Solution:
         return max(leftHeight, rightHeight)
 ```
 
-47. Same Tree[https://leetcode.com/problems/same-tree/]
+47. [Same Tree](https://leetcode.com/problems/same-tree/)
 1. O(n)
 ```
 # Definition for a binary tree node.
@@ -1464,4 +1464,27 @@ class Solution:
         if root and subRoot and root.val == subRoot.val:
             return self.sameTree(root.left, subRoot.left) and self.sameTree(root.right, subRoot.right)
         return False
+```
+
+49. [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
+1. O(n)
+```
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        parentVal = root.val
+        pVal = p.val
+        qVal = q.val
+        
+        if pVal > parentVal and qVal > parentVal:
+            return self.lowestCommonAncestor(root.right, p, q)
+        if pVal < parentVal and qVal < parentVal:
+            return self.lowestCommonAncestor(root.left, p, q)
+        return root
 ```
