@@ -1510,3 +1510,44 @@ class Solution:
             
         return validate(root, float("-inf"), float("inf"))
 ```
+
+51. [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)
+1. DFS inorder traversal O(n) solution
+```
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        
+        def inorder(root):
+            return inorder(root.left) + [root.val] + inorder(root.right) if root else []
+        
+        return inorder(root)[k-1]
+```
+2. DFS inorder iterative solution, easier to understand
+```
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        stack = []
+        curr = root
+        
+        while stack or curr:
+            while curr:
+                stack.append(curr)
+                curr = curr.left
+            curr = stack.pop() # occurs when curr.left == null
+            k -= 1
+            if k == 0:
+                return curr.val
+            curr = curr.right # check right child after processing left
+```
