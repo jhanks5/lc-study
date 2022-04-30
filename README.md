@@ -11,10 +11,10 @@ Repo to hold LeetCode solutions and track personal progress easier than sifting 
 - Sliding Window*
 - Binary Search
 - Linked List
+- Binary Tree
 
 ## To-Do
 
-- Trees
 - Tries
 - Graphs
 - DP
@@ -35,3 +35,5 @@ tail = dummy
 [...]
 return dummy.next # for list excluding dummy node
 ```
+- Vast majority of tree traversal algorithms involve recursion for optimal solution
+- Consider the ability to create dummy values to establish a range to search, i.e. dummy values at the beginning of linked lists, or infinity values for the initial bounds when traversing a tree with conditionals
