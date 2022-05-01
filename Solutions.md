@@ -1551,3 +1551,28 @@ class Solution:
                 return curr.val
             curr = curr.right # check right child after processing left
 ```
+
+52. [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+1. O(n)
+```
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        if not preorder or not inorder:
+            return None
+        
+        root = TreeNode(preorder[0])
+        mid = inorder.index(preorder[0]) # values to the left are left sub-tree, right is right sub-tree
+        root.left = self.buildTree(preorder[1:mid + 1], inorder[:mid]) # end of sub-array is not inclusive in python
+        root.right = self.buildTree(preorder[mid + 1:], inorder[mid + 1:])
+        return root
+```
+
+- Important to understand for this problem:
+    - Inorder traversal means that `root` is in the middle: the values to the left are in the left sub-tree, and the values to the right are in the right sub-tree.
+    - Preorder traversal, the `root` is always the first item in the list.

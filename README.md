@@ -12,6 +12,8 @@ Repo to hold LeetCode solutions and track personal progress easier than sifting 
 - Binary Search
 - Linked List
 - Binary Tree
+    - Preorder, postorder, inorder traversal
+- Floyd's Cycle Algorithm (Floyd's Tortoise and Hare Algorithm) 
 
 ## To-Do
 
