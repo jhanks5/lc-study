@@ -6,14 +6,15 @@ Repo to hold LeetCode solutions and track personal progress easier than sifting 
 ## Topics covered so far
 
 - Arrays
-- Hashing*
-- Two pointers
-- Sliding Window*
+- Hashing
+- Two Pointers
+- Sliding Window
 - Binary Search
 - Linked List
+    - Floyd's Cycle Algorithm (Floyd's Tortoise and Hare Algorithm) 
 - Binary Tree
     - Preorder, postorder, inorder traversal
-- Floyd's Cycle Algorithm (Floyd's Tortoise and Hare Algorithm) 
+    - DFS, BFS*
 
 ## To-Do
 

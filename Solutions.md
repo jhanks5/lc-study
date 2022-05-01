@@ -1576,3 +1576,102 @@ class Solution:
 - Important to understand for this problem:
     - Inorder traversal means that `root` is in the middle: the values to the left are in the left sub-tree, and the values to the right are in the right sub-tree.
     - Preorder traversal, the `root` is always the first item in the list.
+
+53. [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)
+1. O(n) memory, O(tree_height) space
+```
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxPathSum(self, root: Optional[TreeNode]) -> int:
+        res = [root.val]
+        
+        # return max path sum without split
+        def dfs(root):
+            if not root:
+                return 0
+            
+            leftMax = dfs(root.left)
+            rightMax = dfs(root.right)
+            
+            # catch negative cases
+            leftMax = max(leftMax, 0)
+            rightMax = max(rightMax, 0)
+            
+            # compute max path sum WITH split
+            res[0] = max(res[0], root.val + leftMax + rightMax)
+            # without split, for finding max path sums of sub-trees
+            return root.val + max(leftMax, rightMax)
+        
+        dfs(root)
+        return res[0]
+```
+
+- Main reason this problem is a `Hard` problem is the negative cases. Finding the max on each function call between 0 and `${side}Max` catches this.
+- Important to note the return value of the `dfs` helper function is specifically for DFS on the sub-trees, NOT finding the `res` as the return value for `dfs`.
+- "Can the values be negative?" would be an important question to clarify with an interviewer on a problem like this.
+
+54. [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)
+1. O(n) time/space
+```
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+class Codec:
+    
+    """Encodes a tree to a single string.
+        :type root: TreeNode
+        :rtype: str
+        """
+        
+    def serialize(self, root):
+        res = []
+        
+        def dfs(node):
+            if not node:
+                res.append("null")
+                return
+            res.append(str(node.val))
+            dfs(node.left)
+            dfs(node.right)
+        
+        dfs(root)
+        return ",".join(res)
+
+    """Decodes your encoded data to tree.    
+        :type data: str
+        :rtype: TreeNode
+        """
+        
+    def deserialize(self, data):
+        vals = data.split(",")
+        self.i = 0
+        
+        def dfs():
+            if vals[self.i] == "null":
+                self.i += 1
+                return None
+            node = TreeNode(int(vals[self.i]))
+            self.i += 1
+            node.left = dfs()
+            node.right = dfs()
+            return node
+        
+        return dfs()
+
+# Your Codec object will be instantiated and called as such:
+# ser = Codec()
+# deser = Codec()
+# ans = deser.deserialize(ser.serialize(root))
+```
+
+- Don't overcomplicate it when you decide the delimiters.
+- Setting global indices and data structures is very helpful during helper function + recursion approaches.
+
