@@ -15,10 +15,13 @@ Repo to hold LeetCode solutions and track personal progress easier than sifting 
 - Binary Tree
     - Preorder, postorder, inorder traversal
     - DFS, BFS*
+- Tries
+    - Backtracking
+- Heaps
+    - Priority Queue
 
 ## To-Do
 
-- Tries
 - Graphs
 - DP
 - Greedy
